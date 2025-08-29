@@ -1,21 +1,14 @@
 import express from 'express';
+import { checkAuth, login, logout, singup, updateProfile } from '../controllers/auth.controller.js';
 
 const router = express.Router();
 
-router.post('/login', (req, res) => {
-  res.send('login route');
-});
+router.post('/login', login)
+router.post('/singup', singup);
+router.post('/logout', logout);
+router.get('/check', checkAuth);
 
-router.post('/singup', (req, res) => {
-  res.send('singup route');
-});
-
-router.post('/logout', (req, res) => {
-  res.send('logout route');
-});
-
-router.get('/check', (req, res) => {
-  res.send('check route');
-});
+// TODO: ancora da implementare
+router.put('/update-profile', updateProfile);
 
 export default router;

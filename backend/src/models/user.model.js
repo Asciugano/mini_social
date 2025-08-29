@@ -35,6 +35,13 @@ const User = sequelize.define('user', {
       len: [6, 255],
     },
   },
+  profile_pic: {
+    type: DataTypes.TEXT,
+    allowNull: true,
+    validate: {
+      isUrl: true,
+    }
+  }
 });
 
 export default User;
